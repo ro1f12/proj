@@ -6,11 +6,11 @@
 <h2>Departments</h2>
   <p class="text-muted">Admin can control different actions regarding departments from this page </p>
     <div style="padding-bottom: 5px;">
-        <a href="add_dept.php" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
+        <a href="add_dept.php" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
     </div>
   <table class="table table-responsive table-hover table-bordered table-condensed">
     <thead>
-      <tr class="active info">
+      <tr class="active">
         <th>SL. No.</th>
         <th>Department ID</th>
         <th>Department Name</th>
@@ -33,7 +33,7 @@
 					<td>" . $row['dept_id'] . "</td>
 					<td>" . $row['dept_name'] . "</td>
 					<td><p>" . $row['dept_detail'] . "</p></td>
-					<td class='btn btn-primary btn-sm btn-info'>" . $row['status'] . "</td>
+					<td class='btn btn-default btn-sm'>" . $row['status'] . "</td>
 					<td><a href='edit_dept.php?dept_id=".$row['dept_id']."'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a></td>
 					<tr>";
         $i++;
@@ -50,5 +50,5 @@
 </div>
 
 
-<hr>
+
 <?php require_once '../includes/footer.php';?>
