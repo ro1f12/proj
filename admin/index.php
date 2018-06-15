@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,9 +9,13 @@
     <title>EMS | admin login</title>
 </head>
 <body>
-<div class="container">
+<div class="container"-->
+<?php require_once '../includes/header.php';?>
+<div class="nav navbar navbar-inverse">
 <marquee><strong><h3>Employee Management System</h3></strong></marquee>
-<hr/>
+</div>
+
+<br><br><br><br><br><br>
 <div class="row">
 <div class="col-md-3"></div>
 <div class="col-md-6">
@@ -37,7 +41,8 @@
 <div class="col-md-3"></div>
 </div>
 <hr/>
-<div class="footer">
+
+<!--div class="footer">
 <div class="container">
 <p class="text-center">
    Employee Management System | Powered By Bootstrap<br/>
@@ -48,4 +53,5 @@
 </div>
 </div>
 </body>
-</html>
+</html--->
+<?php require_once '../includes/footer.php';?>
