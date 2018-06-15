@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">EMS</a>
+            <a class="navbar-brand" href="#">Employee Management System</a>
         </div>
 
 

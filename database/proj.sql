@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 14, 2018 at 05:53 PM
+-- Generation Time: Jun 15, 2018 at 04:12 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -80,17 +80,26 @@ CREATE TABLE IF NOT EXISTS `employee` (
   `emp_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'employeeID',
   `password` varchar(255) NOT NULL COMMENT 'password ',
   `name` varchar(50) NOT NULL COMMENT 'Name Of the employee',
+  `photo` varchar(30) NOT NULL DEFAULT 'default_pic.png',
   `email` varchar(50) NOT NULL COMMENT 'Email of the employee',
   `phone` varchar(10) NOT NULL COMMENT 'phone number of the employee',
   `dept_id` int(11) NOT NULL COMMENT 'department_id of the concerned department',
   `salary` decimal(10,0) NOT NULL COMMENT 'salary of th employee',
-  `status` int(11) NOT NULL COMMENT 'status of the employee',
+  `status_id` int(11) NOT NULL COMMENT 'status of the employee',
   `joined_on` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'joined date & time of the employee',
   PRIMARY KEY (`emp_id`),
   UNIQUE KEY `email` (`email`),
   KEY `dept_id` (`dept_id`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `status` (`status_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`emp_id`, `password`, `name`, `photo`, `email`, `phone`, `dept_id`, `salary`, `status_id`, `joined_on`) VALUES
+(1, '12345', 'admin', 'default_pic.png', 'admin@admin.com', '1234567890', 1, '1000', 1, '2018-06-14 23:39:33'),
+(2, '111', 'csHOD', 'default_pic.png', 'hod.cs@ems.com', '1234567890', 1, '65000', 1, '2018-06-15 00:04:36');
 
 -- --------------------------------------------------------
 
@@ -152,7 +161,7 @@ ALTER TABLE `department`
 -- Constraints for table `employee`
 --
 ALTER TABLE `employee`
-  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`status`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`dept_id`) REFERENCES `department` (`dept_id`);
 
 --

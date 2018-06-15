@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-    <div class="nav navbar-fixed-bottom navbar-inverse" style="padding-bottom: 0px; max-height: fit-content;">
+    <div class="navbar nav navbar-fixed-bottom navbar-inverse" style="padding-bottom: 0px; max-height: fit-content;">
         <div class="container">
         <p class="text-center text-muted" style="">
             Employee Management System | Powered By Bootstrap<br/>
