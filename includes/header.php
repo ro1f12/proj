@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+    <!--link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css"-->
     <!--icon-->
     <link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="../apple-icon-60x60.png">

@@ -35,4 +35,4 @@
         </div>
     </div>
 </nav>
-<marquee direction="up" width="100%" scrolldelay="300" behavior="sliding" class="text-center"><strong>Admin Dashboard</strong></marquee>
+<marquee direction="" width="100%" scrolldelay="300" behavior="sliding" class="text-center"><strong>Admin Dashboard</strong></marquee>
