@@ -45,12 +45,11 @@ if(isset($_SESSION['error'])){
                 {   
                  $row=$result->fetch_assoc();
                  echo "<div class='col-md-offset-1 col-md-10 col-xs-12 '>";
-                    echo "<h3 class='text-center text-primary'>".$row['title']."</h3>";
+                    echo "<h3 class='text-center text-primary '>".ucfirst($row['title'])."</h3>";
                     echo "<hr>";
                     echo "<i class='text-muted'>Date:".$row['notice_date']."</i><br/>";
                     echo "<p class='text-muted'>".$row['body']."</p>";
-                    echo "<a href='#' class='btn btn-default btn-block'>More...<a/>";
-
+                    echo "<a href='view_notice.php?notice_id=".$row['notice_id']."' class='btn btn-default btn-block'>More...<a/>";
                  echo "</div>";
               }
             echo"</div class='row'>";
