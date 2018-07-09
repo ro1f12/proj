@@ -11,8 +11,10 @@ extract($_POST);
 
  //insert the data into the database
  require_once '../connection.php';
- $sql1 = "INSERT INTO  `employee`(`password`,`name`,`email`,`phone`,`dept_id`,`status_id`,`salary`) 
-            VALUES(".$pwd.",'".$name."','".$email."',".$phone.",".$dept_id.",".$status_id.",".$salary.")";
+ //$sql1 = "INSERT INTO  `employee`(`password`,`name`,`email`,`phone`,`dept_id`,`status_id`,`salary`) 
+ //           VALUES(".$pwd.",'".$name."','".$email."',".$phone.",".$dept_id.",".$status_id.",".$salary.")";
+
+ $sql1 = " UPDATE `employee` SET `name` = '" .$name. "',`dept_id` = '" .$dept_id."', `dept_id` = '" .$dept_id. "' WHERE `employee`.`emp_id` = '" .$emp_id. "'";
 
 $query = $db->query($sql1);
 
