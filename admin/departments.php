@@ -1,4 +1,8 @@
-<?php require_once '../includes/header.php';?>
+<?php require_once '../includes/header.php';
+if(!isset($_SESSION['admin_id'])){
+  header('location:index.php');
+}
+?>
 <?php require_once '../includes/admin_nav.php';?>
 <div class="row">
 <div class="col-md-2"></div>

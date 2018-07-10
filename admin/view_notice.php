@@ -1,4 +1,8 @@
-<?php require_once '../includes/header.php';?>
+<?php require_once '../includes/header.php';
+if(!isset($_SESSION['admin_id'])){
+    header('location:index.php');
+}
+?>
 <?php require_once '../includes/admin_nav.php';?>
 
 
@@ -37,7 +41,7 @@
                 echo "<h3 class='text-center text-primary '>".ucfirst($row['title'])."</h3>";
                 echo "<hr>";
                 echo "<i class='text-muted'>Date:".$row['notice_date']."</i><br/>";
-                echo "<p class='text-muted'>".$row['body']."</p>";
+               echo "<p class='text-muted'>".$row['body']."</p>";
                 echo "<a href='edit_notice.php?notice_id=".$row['notice_id']."' class='btn btn-primary btn-block'>Edit<a/><br/>";
                 echo "<a href='delete_notice.php?notice_id=".$row['notice_id']."' class='btn btn-danger btn-block'>Delete<a/>";
                 

@@ -16,15 +16,16 @@
                 <li class="active"><a href="http://localhost/proj/admin/employees.php">Employees</a></li>
                 <li><a href="http://localhost/proj/admin/departments.php">Departments</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="../admin/backupDB.php">Create Backup</a></li>
+                        <i><a href="../admin/download.php?download_file='how_to_install.txt'">Users Manual</a></li>
+                        
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <!--li><a href="#">Change Password</a></li-->
+                        <li><a href="../admin/changePassword.php">Cahnge Password</button></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="../logout.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
