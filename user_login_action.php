@@ -8,15 +8,16 @@ $user_id = $_POST['user_id'];
 
 
 //sql query
-$sql = "SELECT * FROM `employee` WHERE `user_id`='".$user_id."'";
+$sql = "SELECT * FROM `employee` WHERE `emp_id`='".$user_id."'";
 $result = $db->query($sql);
 
 if($result == true )
 {
-    $row = $row = $result->fetch_assoc();
+    $row = $result->fetch_assoc();
     if($row['password'] == $password)
     {
-        $_SESSION['user_id'] = $user_id;
+        $_SESSION['dept_id'] = $row['dept_id'];
+        $_SESSION['emp_id'] = $row['emp_id'];
         header('location: user_dash.php');
         //echo 'welcome user';
     }

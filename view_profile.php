@@ -50,7 +50,7 @@ if(!isset($_SESSION['emp_id'])){
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://localhost/proj/user_dash.php">Dashboard</a></li>
-                <li><a href="http://localhost/proj/view_profile.php">Profile</a></li>
+                <li><a href="http://localhost/proj/admin/view_profile.php">Profile</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Settings <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
@@ -71,58 +71,75 @@ if(!isset($_SESSION['emp_id'])){
 <marquee direction="" width="100%" scrolldelay="300" behavior="sliding" class="text-center"><strong>User Dashboard</strong></marquee>
 <!--/navbar-->
 
-<!--user dashboard view-->
+<!--user profile view-->
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h2>Employee Dashboard</h2>
-        <p class="text-muted"> Notices for Employee </p>
-        
+        <h2>Profile</h2>
+        <p class="text-muted"> Employee Profile </p>
+        <div style="padding-bottom: 5px;">
+            <a href="user_dash.php" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+        </div>
         <div class="jumbotron">
-        <!-- _-->
-        <?php
-         $dept = $_SESSION['dept_id'];
-         require 'connection.php';
-        $sql="SELECT * FROM `notice` WHERE `dept_id`= ".$dept." ORDER BY  `notice_id` DESC LIMIT 10 ";
+          <?php
+            $emp_id = $_SESSION['emp_id'];
+            //retrieve information from the DB to fill the table data
+            require_once 'connection.php';
+           //$sql = "SELECT * FROM `employee` NATURAL JOIN `status` WHERE `emp_id` = '".$emp_id."'";
 
-        //$sql="SELECT * FROM `notice` WHERE `dept_id`= ".$dept." ORDER BY  `notice_id` DESC LIMIT 10 ";
-        $result=$db->query($sql);
-        // var_dump($sql);
-        //var_dump($result);
-        if($db->query($sql))
-        {
-            if($result->num_rows>0)
-            {                  
-              echo"<div class='row'>";
-                $col=$result->num_rows;
-                for($i=0;$i<$result->num_rows;$i++)
-                {   
-                 $row=$result->fetch_assoc();
-                 echo "<div class='col-md-offset-1 col-md-10 col-xs-12 '>";
-                    echo "<h3 class='text-center text-primary '>".ucfirst($row['title'])."</h3>";
-                    echo "<hr>";
-                    echo "<i class='text-muted'>Date:".$row['notice_date']."</i><br/>";
-                    echo "<p class='text-muted'>".$row['body']."</p>";
-                   // echo "<a href='view_notice.php?notice_id=".$row['notice_id']."' class='btn btn-default btn-block'>More...<a/>";
-                 echo "</div>";
-              }
-            echo"</div class='row'>";
-            }
-            else
-            {
-               echo"<div><p class='text-center text-info'>Currently No Notice  Avaiable In The System!!</p><div>";
-            }
-        }
-        $db->close();
-    ?>
+           $sql = "SELECT * FROM `employee` NATURAL JOIN `status` NATURAL JOIN `department` WHERE `emp_id` = '".$emp_id."'";
+            //print_r($sql);
+            $result = $db->query($sql);
+            //print_r($result);
+            $row = $result->fetch_assoc();
+            //print_r($row);
+         
+            ?>
+            <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <img src="images/<?php echo $row['photo'];?>" class="img img-responsive">
+                <button type="button" class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#myModal">Upload</button>
+                <?php include_once 'includes/uploadPhotoModal.php'; ?>
+            </div>
+            <div class="col-md-4"></div>
+            </div>
+            <br>
 
-        <!-- / -->
+            <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="panel panel-primary">
+                <div class="panel-hedaer text-center"><strong>Informations Available<strong><hr/></div>
+               <div class="panel-body text-center">
+               <?php 
+                echo "<h3>hello ".$row['name']."</h2> ";
+                echo "Email: ".$row['email']."<br>";  
+               //echo $row['dept_id']."<br>";
+               echo "Department: ". $row['dept_name']."<br>"; 
+               
+                //echo "salary: ".$row['status']."<br>";
+                echo "Contact No: ".$row['phone']."<br>";
+                echo "salary: ".$row['salary']."<br>";
+                echo "joined on: ". $row['joined_on']."<br>";
+                
+                ?>
+                </div>
+                <div class="panel-footer"><a href="#" class="btn btn-default btn-block">Want to update? Contact Admin</a></div>
+               </div>
+            </div>   
+            <div class="col-md-3"></div>
+            </div>
         </div>
-        </div>
+
     </div>
-    <div class="col-md-2"></div>
 </div>
-<!--/user dashboard view-->
+</div>
+<div class="col-md-2"></div>
+</div>
+
+
+<!--/user profile view-->
 
 
 

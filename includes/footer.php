@@ -4,8 +4,8 @@
         <div class="container">
         <p class="text-center text-muted" style="">
             Employee Management System | Powered By Bootstrap<br/>
-            &copy;Biswajeet Kalita | 2018-19<br/>
-            Version 1.0.0
+            &copy; | 2018-19<br/>
+            Version 1.0.1
         </p>
         </div>
     </div>

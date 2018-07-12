@@ -4,13 +4,30 @@ if(!isset($_SESSION['admin_id'])){
 }
 ?>
 <?php require_once '../includes/admin_nav.php';?>
+
+<?php 
+/**
+ * message flushing technique
+ */
+if(isset($_SESSION['success'])){
+    echo '<script> alert("Task Completed Successfully");</script>';
+    unset($_SESSION['success']);
+}
+if(isset($_SESSION['error'])){
+    echo '<script> alert("Something Went Wrong");</script>';
+    unset($_SESSION['error']);
+}
+
+?>
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-md-8">
 <h2>Departments</h2>
   <p class="text-muted">Admin can control different actions regarding departments from this page </p>
     <div style="padding-bottom: 5px;">
-        <a href="add_dept.php" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a>
+        <!--a href="add_dept.php" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add</a-->
+        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+            <?php include_once '../includes/departmentAddModal.php'; ?>
     </div>
   <table class="table table-responsive table-hover table-bordered table-condensed">
     <thead>

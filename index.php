@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <!--link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css"-->
     <title>EMS | user login</title>
 </head>
 <body>
@@ -44,10 +44,10 @@
 <hr/>
 <div class="footer">
 <div class="container">
-<p class="text-center">
+<p class="text-center navbar nav navbar-fixed-bottom">
    Employee Management System | Powered By Bootstrap<br/>
-   &copy;Biswajeet Kalita | 2018-19<br/>
-   Version 1.0.0
+   &copy; | 2018-19<br/>
+   Version 1.0.1
 </p>
 </div>
 </div>
