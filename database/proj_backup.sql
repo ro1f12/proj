@@ -6,7 +6,7 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-INSERT INTO admin VALUES("admin@admin.com","12345");
+INSERT INTO admin VALUES("admin@admin.com","111");
 
 
 
@@ -14,17 +14,18 @@ CREATE TABLE `department` (
   `dept_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'departmentID',
   `dept_name` varchar(50) NOT NULL COMMENT 'department name',
   `dept_detail` varchar(255) DEFAULT NULL COMMENT 'about the department',
-  `status_id` int(11) NOT NULL,
+  `status_id` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`dept_id`),
   UNIQUE KEY `dept_name` (`dept_name`),
   KEY `status` (`status_id`),
   CONSTRAINT `department_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `status` (`status_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
-INSERT INTO department VALUES("1","cs","computer science","1");
-INSERT INTO department VALUES("2","BSc IT","information technology","1");
+INSERT INTO department VALUES("1","cse","computer science & eng","1");
+INSERT INTO department VALUES("2","BSc IT","information technology 2015","1");
 INSERT INTO department VALUES("3","eco","economics department of lcb college","1");
 INSERT INTO department VALUES("4","english","english department of lcb college","2");
+INSERT INTO department VALUES("5","electronics","electronices of LCB","1");
 
 
 
@@ -47,7 +48,7 @@ CREATE TABLE `employee` (
   CONSTRAINT `employee_ibfk_2` FOREIGN KEY (`dept_id`) REFERENCES `department` (`dept_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-INSERT INTO employee VALUES("1","12345","admin121","default_pic.png","admin@admin.com","1234567890","2","1000","1","2018-06-14 23:39:33");
+INSERT INTO employee VALUES("1","12345","admin121","default_pic.png","admin@admin.com","1234567890","1","1000","1","2018-06-14 23:39:33");
 INSERT INTO employee VALUES("2","111","Computer HOD","default_pic.png","hod.cs@ems.com","1234567890","1","65000","1","2018-06-15 00:04:36");
 INSERT INTO employee VALUES("3","66666","injnwef","default_pic.png","kalita@11.com","1234567890","2","132456778","2","2018-07-06 07:05:26");
 INSERT INTO employee VALUES("4","123","alen","default_pic.png","a@a.a","1234567890","2","1234","2","2018-07-06 07:41:15");
@@ -67,9 +68,10 @@ CREATE TABLE `notice` (
   PRIMARY KEY (`notice_id`),
   KEY `notice_ibfk_1` (`dept_id`),
   CONSTRAINT `notice_ibfk_1` FOREIGN KEY (`dept_id`) REFERENCES `department` (`dept_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 INSERT INTO notice VALUES("7","1","PG"," PG admissions open","2018-07-28","2018-07-10 07:55:32");
+INSERT INTO notice VALUES("8","2","my first post"," lorem  epsum dolor","2018-07-13","2018-07-12 09:35:28");
 
 
 
@@ -77,8 +79,9 @@ CREATE TABLE `status` (
   `status_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ststusID',
   `status` varchar(10) NOT NULL,
   PRIMARY KEY (`status_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 INSERT INTO status VALUES("1","active");
 INSERT INTO status VALUES("2","inactive");
+INSERT INTO status VALUES("3","suspended");
 
